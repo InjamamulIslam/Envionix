@@ -27,7 +27,30 @@ jobs:
           cache: 'npm'
           cache-dependency-path: './frontend/package-lock.json'
       
+      # Cache node_modules for faster installs
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        id: cache-node-modules
+        with:
+          path: frontend/node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('frontend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+      
+      # Cache Vite build cache for faster builds
+      - name: Cache Vite
+        uses: actions/cache@v4
+        with:
+          path: |
+            frontend/node_modules/.vite
+            frontend/.vite
+          key: ${{ runner.os }}-vite-${{ hashFiles('frontend/package-lock.json') }}-${{ hashFiles('frontend/src/**') }}
+          restore-keys: |
+            ${{ runner.os }}-vite-${{ hashFiles('frontend/package-lock.json') }}-
+            ${{ runner.os }}-vite-
+      
       - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci
       
       - name: Run linter
@@ -68,7 +91,18 @@ jobs:
           cache: 'npm'
           cache-dependency-path: './backend/package-lock.json'
       
+      # Cache node_modules for faster installs
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        id: cache-node-modules-backend
+        with:
+          path: backend/node_modules
+          key: ${{ runner.os }}-backend-node-modules-${{ hashFiles('backend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-backend-node-modules-
+      
       - name: Install dependencies
+        if: steps.cache-node-modules-backend.outputs.cache-hit != 'true'
         run: npm ci
       
       - name: Build project
