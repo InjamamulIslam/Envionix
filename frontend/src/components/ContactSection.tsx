@@ -5,6 +5,7 @@ import { FAQ } from './FAQ';
 export function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleSubmit = (_: React.FormEvent) => {
     // The form will be submitted via FormSubmit.co
     // Show success message after a brief delay
