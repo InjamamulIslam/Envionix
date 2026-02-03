@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { FAQ } from '../components/FAQ';
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ export function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to revolutionize your environmental testing? Contact us to learn more about the Envionix III 
+            Ready to revolutionize your environmental testing? Contact us to learn more about the Envionix III
             or schedule a demonstration.
           </p>
         </div>
@@ -50,7 +51,7 @@ export function ContactPage() {
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Send us a Message</h2>
-              
+
               {isSubmitted ? (
                 <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-8 text-center">
                   <CheckCircle className="w-16 h-16 text-emerald-600 mx-auto mb-4" />
@@ -93,7 +94,7 @@ export function ContactPage() {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
                       Company/Organization
@@ -108,7 +109,7 @@ export function ContactPage() {
                       placeholder="Your company name"
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                       Message *
@@ -124,7 +125,7 @@ export function ContactPage() {
                       placeholder="Tell us about your testing needs or ask any questions..."
                     />
                   </div>
-                  
+
                   <button
                     type="submit"
                     className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2"
@@ -139,7 +140,7 @@ export function ContactPage() {
             {/* Contact Information */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Contact Information</h2>
-              
+
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -194,44 +195,7 @@ export function ContactPage() {
       {/* FAQ Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-              <p className="text-xl text-gray-600">
-                Common questions about the Envionix III and our services
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              {[
-                {
-                  question: "What contaminants can the Envionix III detect?",
-                  answer: "The Envionix III can detect heavy metals including arsenic, lead, chromium, mercury, cadmium, copper, zinc, and nickel in water, soil, and food samples."
-                },
-                {
-                  question: "How accurate are the test results?",
-                  answer: "Our device provides laboratory-grade accuracy with detection limits in the ppb range, meeting international standards for environmental testing."
-                },
-                {
-                  question: "What is the typical delivery time?",
-                  answer: "Standard delivery is 4-6 weeks from order confirmation. Expedited delivery options are available for urgent requirements."
-                },
-                {
-                  question: "Do you provide training and support?",
-                  answer: "Yes, we provide comprehensive training, technical support, and ongoing maintenance services to ensure optimal performance of your device."
-                },
-                {
-                  question: "Can I get a demo before purchasing?",
-                  answer: "Absolutely! We offer on-site demonstrations and trial periods. Contact us to schedule a demo at your facility."
-                }
-              ].map((faq, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <FAQ />
         </div>
       </section>
     </div>

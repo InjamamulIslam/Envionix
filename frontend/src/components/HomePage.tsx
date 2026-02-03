@@ -20,7 +20,7 @@ export function HomePage({ onOpenModal }: HomePageProps) {
       </div>
       <Solution />
       <Problem />
-      
+
       <Features />
       <UseCases />
       <Impact />

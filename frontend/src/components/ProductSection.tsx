@@ -14,30 +14,38 @@ export function ProductSection() {
   ];
 
   const technicalSpecs = [
-    { category: 'Performance', specs: [
-      { label: 'Detection Range', value: 'ppb to ppm levels' },
-      { label: 'Response Time', value: '< 5 minutes' },
-      { label: 'Accuracy', value: '±5% at detection limit' },
-      { label: 'Repeatability', value: 'CV < 10%' },
-    ]},
-    { category: 'Hardware', specs: [
-      { label: 'Display', value: '4.3" LCD touchscreen' },
-      { label: 'Storage', value: '32GB internal + SD card' },
-      { label: 'Weight', value: '1.2 kg' },
-      { label: 'Dimensions', value: '25 x 20 x 15 cm' },
-    ]},
-    { category: 'Environmental', specs: [
-      { label: 'Operating Temperature', value: '-10°C to 50°C' },
-      { label: 'Humidity', value: '10-90% RH' },
-      { label: 'IP Rating', value: 'IP65 (dust/water resistant)' },
-      { label: 'Certifications', value: 'CE, FCC, ISO 9001' },
-    ]},
-    { category: 'Connectivity', specs: [
-      { label: 'WiFi', value: '802.11 b/g/n/ac' },
-      { label: 'Cellular', value: '4G LTE Cat-1' },
-      { label: 'Bluetooth', value: 'v5.0' },
-      { label: 'GPS', value: 'Built-in GNSS' },
-    ]},
+    {
+      category: 'Performance', specs: [
+        { label: 'Detection Range', value: 'ppb to ppm levels' },
+        { label: 'Response Time', value: '< 5 minutes' },
+        { label: 'Accuracy', value: '±5% at detection limit' },
+        { label: 'Repeatability', value: 'CV < 10%' },
+      ]
+    },
+    {
+      category: 'Hardware', specs: [
+        { label: 'Display', value: '4.3" LCD touchscreen' },
+        { label: 'Storage', value: '32GB internal + SD card' },
+        { label: 'Weight', value: '1.2 kg' },
+        { label: 'Dimensions', value: '25 x 20 x 15 cm' },
+      ]
+    },
+    {
+      category: 'Environmental', specs: [
+        { label: 'Operating Temperature', value: '-10°C to 50°C' },
+        { label: 'Humidity', value: '10-90% RH' },
+        { label: 'IP Rating', value: 'IP65 (dust/water resistant)' },
+        { label: 'Certifications', value: 'CE, FCC, ISO 9001' },
+      ]
+    },
+    {
+      category: 'Connectivity', specs: [
+        { label: 'WiFi', value: '802.11 b/g/n/ac' },
+        { label: 'Cellular', value: '4G LTE Cat-1' },
+        { label: 'Bluetooth', value: 'v5.0' },
+        { label: 'GPS', value: 'Built-in GNSS' },
+      ]
+    },
   ];
 
   const contaminants = [
@@ -47,8 +55,11 @@ export function ProductSection() {
   ];
 
   return (
-    <section id="product" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
+    <section id="product" className="py-20 relative overflow-hidden">
+
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white z-0 pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Product Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-emerald-50 px-4 py-2 rounded-full text-emerald-700 font-medium mb-6">
@@ -83,16 +94,16 @@ export function ProductSection() {
           <div className="lg:col-span-1 flex justify-center">
             <div className="max-w-[300px] w-full">
               <DeviceShowcase />
-              <div className="mt-6 flex gap-3">
+              <div className="mt-12 flex gap-4">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="flex-1 bg-emerald-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 text-sm"
+                  className="flex-1 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-emerald-500/20 hover:bg-emerald-700 hover:shadow-emerald-500/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
                 >
-                  <Play className="w-4 h-4" />
+                  <Play className="w-5 h-5 fill-current" />
                   Demo
                 </button>
-                <button className="flex-1 border border-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 text-sm">
-                  <Download className="w-4 h-4" />
+                <button className="flex-1 bg-white border-2 border-emerald-100 text-emerald-700 px-6 py-3 rounded-xl font-semibold hover:border-emerald-200 hover:bg-emerald-50 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                  <Download className="w-5 h-5" />
                   Datasheet
                 </button>
               </div>
@@ -104,7 +115,7 @@ export function ProductSection() {
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
               Advanced Multi-Contaminant Detection
             </h3>
-            
+
             <div className="space-y-6">
               <div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Detectable Contaminants</h4>
@@ -143,51 +154,10 @@ export function ProductSection() {
           </div>
         </div>
 
-        {/* Interactive 3D Model */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Interactive 3D Model</h3>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Explore the Envionix in detail with our interactive 3D model. Rotate, zoom, and examine every component.
-            </p>
-          </div>
-          
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden">
-              <div className="aspect-video w-full">
-                <iframe 
-                  title="Envionix - IoT Testing Device 3D Model"
-                  className="w-full h-full"
-                  frameBorder="0" 
-                  allowFullScreen 
-                  allow="autoplay; fullscreen; xr-spatial-tracking" 
-                  src="https://sketchfab.com/models/1923a85aefc44c2c9531afe53de4257e/embed?autospin=1&autostart=1&transparent=1&ui_theme=dark&dnt=1"
-                />
-              </div>
-              <div className="bg-gray-800 px-6 py-4">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <div>
-                    <h4 className="text-white font-semibold mb-1">Envionix 3D Model</h4>
-                    <p className="text-gray-300 text-sm">Click and drag to rotate • Scroll to zoom • Double-click to reset</p>
-                  </div>
-                  <a
-                    href="https://sketchfab.com/models/1923a85aefc44c2c9531afe53de4257e/embed"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-emerald-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-emerald-700 transition-colors text-sm whitespace-nowrap"
-                  >
-                    View in Fullscreen
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Technical Specifications Table */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Complete Technical Specifications</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {technicalSpecs.map((section, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-lg overflow-hidden">
@@ -212,7 +182,7 @@ export function ProductSection() {
         {/* Applications Grid */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Industry Applications</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {

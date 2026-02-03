@@ -1,92 +1,145 @@
 import { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Zap, Wifi, Shield } from 'lucide-react';
+
+const slides = [
+  {
+    src: '/parts/toxisense_new_angle.png',
+    title: 'Compact & Field-Ready',
+    specs: ['Rugged Design', 'IP54 Rated', 'Lightweight'],
+    icon: Shield
+  },
+  {
+    src: '/parts/toxisense_new_side.png',
+    title: 'Versatile Connectivity',
+    specs: ['USB-C Charging', 'Data Export', 'Secure Ports'],
+    icon: Wifi
+  },
+  {
+    src: '/parts/toxisense_new_top.png',
+    title: 'Rapid Testing Interface',
+    specs: ['Sample Chamber', 'One-Touch Test', 'Status LED'],
+    icon: Zap
+  }
+];
 
 export default function DeviceShowcase() {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [imgError, setImgError] = useState(false);
 
-  const src = '/assets/device.jpg'; // place your high-res image at public/assets/device.jpg for best results
-
-  // close on escape key when modal is open
+  // Auto-advance slides
   useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') setIsOpen(false);
-    }
+    if (isOpen) return; // Pause slider when modal is open
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isOpen]);
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('keydown', onKey);
-    }
+  const nextSlide = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
 
-    return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('keydown', onKey);
-      }
-    };
-  }, []);
+  const prevSlide = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   return (
     <div className="w-full flex items-center justify-center">
-  <div className="max-w-[440px] md:max-w-[560px] w-full">
-        <button
-          aria-label="Open device image"
+      <div className="max-w-[440px] md:max-w-[560px] w-full relative group">
+
+        {/* Main Card */}
+        <div
           onClick={() => setIsOpen(true)}
-          className="w-full rounded-2xl overflow-hidden shadow-2xl focus:outline-none focus:ring-4 focus:ring-emerald-200"
+          className="relative w-full aspect-square bg-transparent rounded-2xl overflow-hidden cursor-pointer transition-transform hover:scale-[1.02]"
         >
-            {!imgError ? (
-            // attempt to load a file at /assets/device.jpg (you can put the provided image in public/assets/device.jpg)
+          {/* Image */}
+          {!imgError ? (
             <img
-              src={src}
-              alt="Portable environmental test device with solar panel and LCD display"
-              className="w-full h-auto object-cover bg-gray-100 rounded-lg"
+              src={slides[currentSlide].src}
+              alt={slides[currentSlide].title}
+              className="w-full h-full object-cover transition-opacity duration-500"
               onError={() => setImgError(true)}
             />
           ) : (
-            // fallback inline illustration so build/dev doesn't break if the asset is missing
-            <div className="w-full h-56 md:h-72 lg:h-80 bg-gray-50 flex items-center justify-center rounded-lg">
-              <svg width="220" height="150" viewBox="0 0 220 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <rect x="10" y="10" width="200" height="120" rx="12" fill="#0f172a" />
-                <rect x="30" y="20" width="160" height="60" rx="6" fill="#0ea5a4" />
-                <rect x="34" y="86" width="60" height="12" rx="3" fill="#94a3b8" />
-                <rect x="104" y="86" width="80" height="40" rx="6" fill="#0f172a" />
-                <circle cx="40" cy="100" r="5" fill="#f59e0b" />
-              </svg>
+            <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-500">
+              Image not found
             </div>
           )}
+
+          {/* Feature Highlight Overlay */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="p-2 bg-emerald-500/20 rounded-lg backdrop-blur-sm">
+                {(() => {
+                  const Icon = slides[currentSlide].icon;
+                  return <Icon className="w-5 h-5 text-emerald-300" />;
+                })()}
+              </div>
+              <h3 className="text-xl font-bold">{slides[currentSlide].title}</h3>
+            </div>
+            <div className="flex gap-3 text-sm text-gray-300 pl-11">
+              {slides[currentSlide].specs.map((spec, i) => (
+                <span key={i} className="flex items-center gap-1">
+                  <span className="w-1 h-1 bg-emerald-400 rounded-full" />
+                  {spec}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 backdrop-blur-md hover:bg-white/40 text-white opacity-0 group-hover:opacity-100 transition-all transform hover:scale-110 z-10"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 backdrop-blur-md hover:bg-white/40 text-white opacity-0 group-hover:opacity-100 transition-all transform hover:scale-110 z-10"
+        >
+          <ChevronRight className="w-6 h-6" />
         </button>
 
-        <p className="sr-only">Click to open larger image of the device.</p>
+        {/* Pagination Dots */}
+        <div className="absolute -bottom-8 left-0 right-0 flex justify-center gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={(e) => { e.stopPropagation(); setCurrentSlide(i); }}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-6 bg-emerald-500' : 'bg-gray-300 hover:bg-emerald-300'
+                }`}
+            />
+          ))}
+        </div>
 
+        {/* Modal */}
         {isOpen && (
           <div
-            role="dialog"
-            aria-modal="true"
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-6"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
             onClick={() => setIsOpen(false)}
           >
-                <div className="relative max-w-[70vw] md:max-w-2xl w-full max-h-[70vh] overflow-auto" onClick={(e) => e.stopPropagation()}>
-                  {!imgError ? (
-                    <img
-                      src={src}
-                      alt="Device (large)"
-                      className="w-full h-auto max-h-[60vh] object-contain rounded-lg shadow-2xl"
-                    />
-                  ) : (
-                    <div className="w-full bg-white p-6 rounded-lg shadow-2xl">
-                      <p className="text-center text-gray-700">Device image not found. Add your image to <code>public/assets/device.jpg</code>.</p>
-                    </div>
-                  )}
-
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="absolute top-3 right-3 bg-white rounded-full p-2 shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-300"
-                    aria-label="Close"
-                  >
-                    ✕
-                  </button>
-                </div>
+            <div className="relative max-w-7xl w-full max-h-[90vh] flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+              <img
+                src={slides[currentSlide].src}
+                alt={slides[currentSlide].title}
+                className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+              />
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full shadow-lg hover:bg-gray-100 transition-all flex items-center justify-center group"
+                aria-label="Close"
+              >
+                <span className="text-gray-700 text-2xl font-bold group-hover:text-emerald-600">×</span>
+              </button>
+            </div>
           </div>
         )}
       </div>
     </div>
   );
 }
-

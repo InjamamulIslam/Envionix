@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Leaf } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   onOpenModal: () => void;
@@ -30,13 +30,13 @@ export function Navbar({ onOpenModal }: NavbarProps) {
     // If href starts with /#, it's a home page section
     if (href.startsWith('/#')) {
       const hash = href.substring(1); // Remove the leading /
-      
+
       // Check if we're on the home page
       if (window.location.pathname === '/') {
         // We're on home page, just scroll
         const element = document.querySelector(hash);
         if (element) {
-          const navHeight = 64;
+          const navHeight = 80;
           const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
           window.scrollTo({
             top: elementPosition - navHeight,
@@ -51,7 +51,7 @@ export function Navbar({ onOpenModal }: NavbarProps) {
       // Regular hash scroll on current page
       const element = document.querySelector(href);
       if (element) {
-        const navHeight = 64;
+        const navHeight = 80;
         const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
         window.scrollTo({
           top: elementPosition - navHeight,
@@ -63,22 +63,18 @@ export function Navbar({ onOpenModal }: NavbarProps) {
   };
 
   return (
-    <nav className={`border-b border-gray-200 fixed w-full top-0 z-40 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-white/70 backdrop-blur-md shadow-sm' 
-        : 'bg-white/95 backdrop-blur-sm'
-    }`}>
+    <nav className={`border-b border-gray-200 fixed w-full top-0 z-40 transition-all duration-300 ${scrolled
+      ? 'bg-white/70 backdrop-blur-md shadow-sm'
+      : 'bg-white/95 backdrop-blur-sm'
+      }`}>
       <div className="container mx-auto px-6">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <a
             href="/"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity ml-21"
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-lg flex items-center justify-center">
-              <Leaf className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900">Envionix</span>
+            <img src="/logo.png" alt="Envionix Logo" className="h-20 w-auto object-contain" />
           </a>
 
           {/* Desktop Navigation */}

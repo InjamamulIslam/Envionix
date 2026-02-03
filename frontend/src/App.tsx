@@ -41,7 +41,7 @@ function AppContent() {
       if (footer) {
         const footerRect = footer.getBoundingClientRect();
         const isFooterVisible = footerRect.top < window.innerHeight;
-        
+
         // Show sticky bar only if scrolled past 800px, not dismissed, and footer is not visible
         setShowSticky(window.scrollY > 800 && !stickyDismissed && !isFooterVisible);
       } else {
@@ -69,9 +69,9 @@ function AppContent() {
         <Route path="/compliance" element={<Compliance />} />
       </Routes>
       <Footer />
-      <StickyBar 
-        show={showSticky} 
-        onOpenModal={() => setIsModalOpen(true)} 
+      <StickyBar
+        show={showSticky}
+        onOpenModal={() => setIsModalOpen(true)}
         onClose={handleCloseStickyBar}
       />
       <DemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

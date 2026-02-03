@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { FAQ } from './FAQ';
 
 export function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (_: React.FormEvent) => {
     // The form will be submitted via FormSubmit.co
     // Show success message after a brief delay
     setTimeout(() => {
@@ -22,7 +23,7 @@ export function ContactSection() {
             Get in Touch
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to revolutionize your environmental testing? Contact us to learn more about Envionix 
+            Ready to revolutionize your environmental testing? Contact us to learn more about Envionix
             or schedule a demonstration.
           </p>
         </div>
@@ -32,7 +33,7 @@ export function ContactSection() {
           {/* Contact Form */}
           <div>
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Send us a Message</h3>
-            
+
             {isSubmitted ? (
               <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-6 md:p-8 text-center">
                 <CheckCircle className="w-12 md:w-16 h-12 md:h-16 text-emerald-600 mx-auto mb-4" />
@@ -42,8 +43,8 @@ export function ContactSection() {
                 </p>
               </div>
             ) : (
-              <form 
-                action="https://formsubmit.co/envionixlabs@gmail.com" 
+              <form
+                action="https://formsubmit.co/envionixlabs@gmail.com"
                 method="POST"
                 onSubmit={handleSubmit}
                 className="space-y-6"
@@ -52,7 +53,7 @@ export function ContactSection() {
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_next" value={window.location.href} />
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -116,7 +117,7 @@ export function ContactSection() {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                     Message *
@@ -130,7 +131,7 @@ export function ContactSection() {
                     placeholder="Tell us about your testing needs or ask any questions..."
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2"
@@ -145,7 +146,7 @@ export function ContactSection() {
           {/* Contact Information */}
           <div>
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Contact Information</h3>
-            
+
             <div className="space-y-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -153,8 +154,8 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-1">Email</h4>
-                  <a 
-                    href="mailto:envionixlabs@gmail.com" 
+                  <a
+                    href="mailto:envionixlabs@gmail.com"
                     className="text-emerald-600 hover:text-emerald-700 text-sm md:text-base transition-colors"
                   >
                     envionixlabs@gmail.com
@@ -168,14 +169,14 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-1">Phone</h4>
-                  <a 
-                    href="tel:+917002071035" 
+                  <a
+                    href="tel:+917002071035"
                     className="text-emerald-600 hover:text-emerald-700 text-sm md:text-base transition-colors block"
                   >
                     +91 7002071035
                   </a>
-                  <a 
-                    href="tel:+918011666517" 
+                  <a
+                    href="tel:+918011666517"
                     className="text-emerald-600 hover:text-emerald-700 text-sm md:text-base transition-colors block"
                   >
                     +91 8011666517
@@ -214,43 +215,8 @@ export function ContactSection() {
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-20 max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
-            <p className="text-lg md:text-xl text-gray-600">
-              Common questions about the Envionix and our services
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {[
-              {
-                question: "What contaminants can Envionix detect?",
-                answer: "Envionix can detect heavy metals including arsenic, lead, chromium, mercury, cadmium, copper, zinc, and nickel in water, soil, and food samples."
-              },
-              {
-                question: "How accurate are the test results?",
-                answer: "Our device provides laboratory-grade accuracy with detection limits in the ppb range, meeting international standards for environmental testing."
-              },
-              {
-                question: "What is the typical delivery time?",
-                answer: "Standard delivery is 4-6 weeks from order confirmation. Expedited delivery options are available for urgent requirements."
-              },
-              {
-                question: "Do you provide training and support?",
-                answer: "Yes, we provide comprehensive training, technical support, and ongoing maintenance services to ensure optimal performance of your device."
-              },
-              {
-                question: "Can I get a demo before purchasing?",
-                answer: "Absolutely! We offer on-site demonstrations and trial periods. Contact us to schedule a demo at your facility."
-              }
-            ].map((faq, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                <h4 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h4>
-                <p className="text-gray-600 text-sm md:text-base">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
+        <div className="mt-20">
+          <FAQ />
         </div>
       </div>
     </section>
