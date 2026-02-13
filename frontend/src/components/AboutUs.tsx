@@ -1,5 +1,6 @@
 import { Leaf, Users, Target, Lightbulb, Award, TrendingUp, Heart, Globe, ArrowLeft, Shield, Zap, Eye } from 'lucide-react';
 import { useEffect } from 'react';
+import { SEO } from './SEO';
 
 export function AboutUs() {
   useEffect(() => {
@@ -8,13 +9,17 @@ export function AboutUs() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="About Envionix Labs | Pioneering AgTech & Environmental Safety"
+        description="Envionix Labs empowers farmers and industries with portable technology to detect toxic elements in soil and water instantly. Learn about our mission for sustainable agriculture."
+      />
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-emerald-600 via-teal-600 to-emerald-700 text-white py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djItaDJ2LTJoLTJ6bTAtNGgydjJoLTJ2LTJ6bTAtNGgydjJoLTJ2LTJ6bTAtNGgydjJoLTJ2LTJ6bTAtNGgydjJoLTJ2LTJ6bTItMnYyaC0ydi0yaDJ6bS0yLTJoMnYyaC0ydi0yem0wLTRoMnYyaC0ydi0yem0wLTRoMnYyaC0ydi0yem0wLTRoMnYyaC0ydi0yem0yLTJ2MmgtMnYtMmgyem0tMi0yaDF2LTFoMXYxaDJ2Mmg0djJoNHYyaDR2Mmg0djJoNHYyaDR2Mmg0di0yaC00di0yaC00di0yaC00di0yaC00di0yaC00di0yaC00di0yaDR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-10"></div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
-          <a 
-            href="/" 
+          <a
+            href="/"
             className="inline-flex items-center gap-2 text-emerald-100 hover:text-white transition-colors mb-8 group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
@@ -32,7 +37,7 @@ export function AboutUs() {
               </div>
             </div>
             <p className="text-xl text-emerald-50 leading-relaxed mt-8">
-              We're on a mission to make environmental testing accessible, instant, and accurate for everyone. 
+              We're on a mission to make environmental testing accessible, instant, and accurate for everyone.
               Through innovative technology, we're revolutionizing how we detect and monitor toxic elements in our environment.
             </p>
           </div>
@@ -242,7 +247,7 @@ export function AboutUs() {
               <p className="text-emerald-100 text-lg mb-6 max-w-2xl mx-auto">
                 We're always looking for talented individuals who share our passion for environmental protection and innovation.
               </p>
-              <a 
+              <a
                 href="mailto:envionixlabs@gmail.com?subject=Career Opportunity Inquiry"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-emerald-700 font-semibold rounded-xl hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
@@ -297,14 +302,14 @@ export function AboutUs() {
               Join the organizations that trust Envionix to protect their people, operations, and communities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="/#solution"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-xl hover:shadow-xl transform hover:scale-105 transition-all duration-300"
               >
                 Explore Our Technology
                 <Zap className="w-5 h-5" />
               </a>
-              <a 
+              <a
                 href="mailto:envionixlabs@gmail.com"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border-2 border-emerald-600 text-emerald-600 font-semibold rounded-xl hover:bg-emerald-50 transition-all duration-300"
               >

@@ -1,5 +1,6 @@
 import { ShieldCheck, Award, FileCheck, Globe, CheckCircle2, Building2, Leaf, Users } from 'lucide-react';
 import { useEffect } from 'react';
+import { SEO } from './SEO';
 
 export function Compliance() {
   useEffect(() => {
@@ -8,6 +9,10 @@ export function Compliance() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50">
+      <SEO
+        title="Agricultural Compliance & Safety Standards | Envionix Labs"
+        description="Ensure your farm and business meets environmental safety standards and regulations with Envionix Labs' certified testing solutions. ISO 9001 and 14001 certified."
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-green-600 to-emerald-600 text-white py-16">
         <div className="container mx-auto px-6">
@@ -27,7 +32,7 @@ export function Compliance() {
       {/* Content */}
       <div className="container mx-auto px-6 py-16">
         <div className="max-w-6xl mx-auto">
-          
+
           {/* Introduction */}
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-12">
             <section className="mb-12">

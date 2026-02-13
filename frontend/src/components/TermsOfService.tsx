@@ -1,5 +1,6 @@
 import { FileText, Scale, AlertTriangle, CheckCircle, XCircle, DollarSign } from 'lucide-react';
 import { useEffect } from 'react';
+import { SEO } from './SEO';
 
 export function TermsOfService() {
   useEffect(() => {
@@ -8,6 +9,10 @@ export function TermsOfService() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-emerald-50">
+      <SEO
+        title="Terms of Service | Envionix Labs"
+        description="Envionix Labs Terms of Service. Rules and regulations for using our environmental testing services."
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-16">
         <div className="container mx-auto px-6">
@@ -24,7 +29,7 @@ export function TermsOfService() {
       {/* Content */}
       <div className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
-          
+
           {/* Introduction */}
           <section className="mb-12">
             <p className="text-gray-700 leading-relaxed text-lg mb-6">
@@ -73,7 +78,7 @@ export function TermsOfService() {
           {/* Account Registration */}
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">3. Account Registration and Security</h2>
-            
+
             <div className="space-y-4">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">3.1 Account Creation</h3>

@@ -1,5 +1,6 @@
 import { Shield, Lock, Eye, Database, UserCheck, Globe } from 'lucide-react';
 import { useEffect } from 'react';
+import { SEO } from './SEO';
 
 export function PrivacyPolicy() {
   useEffect(() => {
@@ -8,6 +9,10 @@ export function PrivacyPolicy() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-emerald-50">
+      <SEO
+        title="Privacy Policy | Envionix Labs"
+        description="Envionix Labs Privacy Policy. How we collect, use, and protect your data."
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-16">
         <div className="container mx-auto px-6">
@@ -24,7 +29,7 @@ export function PrivacyPolicy() {
       {/* Content */}
       <div className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
-          
+
           {/* Introduction */}
           <section className="mb-12">
             <p className="text-gray-700 leading-relaxed text-lg mb-6">

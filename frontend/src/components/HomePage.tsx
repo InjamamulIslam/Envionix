@@ -7,6 +7,7 @@ import { Impact } from './Impact';
 import { ProductSection } from './ProductSection';
 import { ContactSection } from './ContactSection';
 import { CTA } from './CTA';
+import { SEO } from './SEO';
 
 interface HomePageProps {
   onOpenModal: () => void;
@@ -15,6 +16,10 @@ interface HomePageProps {
 export function HomePage({ onOpenModal }: HomePageProps) {
   return (
     <>
+      <SEO
+        description="Empowering farmers with real-time environmental testing. Instant soil and water analysis for precision agriculture, crop safety, and sustainable farming."
+        keywords="Smart Farming, Precision Agriculture, Soil Testing, Water Quality for Farming, Crop Safety, Agricultural IoT, Digital Farming"
+      />
       <div id="home">
         <Hero onOpenModal={onOpenModal} />
       </div>
