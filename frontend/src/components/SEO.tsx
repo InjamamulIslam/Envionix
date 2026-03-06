@@ -20,7 +20,7 @@ export function SEO({
     const siteTitle = "Envionix Labs";
     const defaultDescription = "Empowering farmers and industries with portable, real-time environmental testing. Instant soil and water analysis for smart farming and compliance.";
     const defaultKeywords = "Smart Farming, Precision Agriculture, Soil Testing, Water Quality Analysis, Farm Environmental Monitoring, IoT for Agriculture, Toxic Element Detection, Portable Lab, Envionix Labs";
-    const siteUrl = "https://envionix.com"; // Replace with actual domain
+    const siteUrl = "https://www.envionix.co.in"; // Replace with actual domain
     const defaultImage = "/og-image.jpg"; // Should be added to public folder
 
     const metaTitle = title ? `${title} | Envionix Labs` : siteTitle;
@@ -50,6 +50,28 @@ export function SEO({
             <meta name="twitter:title" content={metaTitle} />
             <meta name="twitter:description" content={metaDescription} />
             <meta name="twitter:image" content={metaImage} />
+
+            {/* JSON-LD Structured Data */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "Envionix Labs Private Limited",
+                    "url": siteUrl,
+                    "logo": `${siteUrl}/logo.png`,
+                    "description": defaultDescription,
+                    "contactPoint": {
+                        "@type": "ContactPoint",
+                        "telephone": "+91-7002071035",
+                        "contactType": "customer service",
+                        "areaServed": "IN",
+                        "availableLanguage": "en"
+                    },
+                    "sameAs": [
+                        "https://www.facebook.com/profile.php?id=61579251697139"
+                    ]
+                })}
+            </script>
         </Helmet>
     );
 }
