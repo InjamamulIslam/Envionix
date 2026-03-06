@@ -1,4 +1,4 @@
-import { Leaf, Mail, MapPin, Phone, Facebook } from 'lucide-react';
+import { Mail, MapPin, Phone, Facebook } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -7,9 +7,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
-                <Leaf className="w-6 h-6 text-white" />
-              </div>
+              <img src="/logo.png" alt="Envionix Labs Logo" className="w-10 h-10 rounded-lg object-contain" />
               <div>
                 <div className="text-2xl font-bold text-white">ENVIONIX</div>
                 <div className="text-xs text-emerald-400 tracking-wide">LABS</div>
@@ -24,7 +22,7 @@ export function Footer() {
             </div>
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-400">Follow us:</span>
-              <a 
+              <a
                 href="https://www.facebook.com/profile.php?id=61579251697139"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -39,7 +37,7 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              
+
               <li>
                 <a href="#solution" className="hover:text-emerald-400 transition-colors">Product</a>
               </li>
@@ -85,7 +83,15 @@ export function Footer() {
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
-            &copy; 2025 ENVIONIX LABS. All rights reserved.
+            &copy; 2025 ENVIONIX LABS. All rights reserved. | Powered by{' '}
+            <a
+              href="https://www.byteflowdigiai.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-emerald-400 transition-colors font-medium"
+            >
+              ByteFlow DigiAI
+            </a>
           </p>
           <div className="flex gap-6 text-sm">
             <a href="/privacy-policy" className="hover:text-emerald-400 transition-colors">Privacy Policy</a>
