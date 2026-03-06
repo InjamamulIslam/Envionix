@@ -83,7 +83,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
-            &copy; 2025 ENVIONIX LABS. All rights reserved. | Powered by{' '}
+            &copy; 2025 ENVIONIX LABS. All rights reserved. | Developed by{' '}
             <a
               href="https://www.byteflowdigiai.com/"
               target="_blank"
