@@ -94,18 +94,22 @@ export function ProductSection() {
           <div className="lg:col-span-1 flex justify-center">
             <div className="max-w-[300px] w-full">
               <DeviceShowcase />
-              <div className="mt-12 flex gap-4">
+              <div className="mt-8 md:mt-12 flex flex-col gap-3 md:gap-4 w-full">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="flex-1 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-emerald-500/20 hover:bg-emerald-700 hover:shadow-emerald-500/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                  className="w-full bg-emerald-600 text-white px-6 py-3 md:py-4 rounded-xl font-semibold shadow-lg shadow-emerald-500/20 hover:bg-emerald-700 hover:shadow-emerald-500/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
                 >
                   <Play className="w-5 h-5 fill-current" />
                   Demo
                 </button>
-                <button className="flex-1 bg-white border-2 border-emerald-100 text-emerald-700 px-6 py-3 rounded-xl font-semibold hover:border-emerald-200 hover:bg-emerald-50 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
-                  <Download className="w-5 h-5" />
-                  Datasheet
-                </button>
+                <a
+                  href="/ENVIONIX-TOXISENSE-BROCHURE.pdf"
+                  download="ENVIONIX-TOXISENSE-BROCHURE.pdf"
+                  className="w-full bg-white border-2 border-emerald-100 text-emerald-700 px-6 py-3 md:py-4 rounded-xl font-semibold hover:border-emerald-200 hover:bg-emerald-50 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-sm sm:text-base"
+                >
+                  <Download className="w-5 h-5 flex-shrink-0" />
+                  <span>Download Brochure</span>
+                </a>
               </div>
             </div>
           </div>

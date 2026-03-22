@@ -39,13 +39,13 @@ export function Footer() {
             <ul className="space-y-3">
 
               <li>
-                <a href="#solution" className="hover:text-emerald-400 transition-colors">Product</a>
+                <a href="/product" className="hover:text-emerald-400 transition-colors">Product</a>
               </li>
               <li>
-                <a href="#" className="hover:text-emerald-400 transition-colors">Technology</a>
+                <a href="/technology" className="hover:text-emerald-400 transition-colors">Technology</a>
               </li>
               <li>
-                <a href="#" className="hover:text-emerald-400 transition-colors">Research</a>
+                <a href="/research" className="hover:text-emerald-400 transition-colors">Research</a>
               </li>
               <li>
                 <a href="/about" className="hover:text-emerald-400 transition-colors">About Us</a>

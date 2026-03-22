@@ -13,28 +13,28 @@ export function StickyBar({ show, onOpenModal, onClose }: StickyBarProps) {
         show ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 flex-1">
-            <div className="text-center sm:text-left">
-              <div className="font-semibold text-lg mb-1">Ready to detect contaminants instantly?</div>
-              <div className="text-emerald-100 text-sm">Join organizations revolutionizing environmental testing</div>
+      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+        <div className="flex items-center justify-between gap-2 sm:gap-4">
+          <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between gap-2 sm:gap-4 flex-1">
+            <div className="text-center sm:text-left w-full">
+              <div className="font-semibold text-sm sm:text-lg mb-0.5 sm:mb-1">Ready to detect contaminants instantly?</div>
+              <div className="text-emerald-100 text-xs sm:text-sm hidden sm:block">Join organizations revolutionizing environmental testing</div>
             </div>
             <button
               onClick={onOpenModal}
-              className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-emerald-700 font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 whitespace-nowrap"
+              className="group inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2 sm:px-6 sm:py-3 bg-white text-emerald-700 font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 whitespace-nowrap text-sm sm:text-base"
             >
               Request Demo
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
           
           <button
             onClick={onClose}
-            className="ml-4 p-2 hover:bg-white/10 rounded-lg transition-colors duration-200 flex-shrink-0"
+            className="p-1.5 sm:p-2 hover:bg-white/10 rounded-lg transition-colors duration-200 flex-shrink-0 self-start sm:self-center -mt-1 sm:mt-0"
             aria-label="Close sticky bar"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
       </div>

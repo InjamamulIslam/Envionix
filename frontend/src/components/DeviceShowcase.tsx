@@ -60,7 +60,7 @@ export default function DeviceShowcase() {
             <img
               src={slides[currentSlide].src}
               alt={slides[currentSlide].title}
-              className="w-full h-full object-cover transition-opacity duration-500"
+              className="w-full h-full object-contain p-4 pb-28 md:p-6 md:pb-24 transition-opacity duration-500 drop-shadow-2xl"
               onError={() => setImgError(true)}
             />
           ) : (
@@ -70,20 +70,20 @@ export default function DeviceShowcase() {
           )}
 
           {/* Feature Highlight Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-emerald-500/20 rounded-lg backdrop-blur-sm">
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white rounded-b-2xl">
+            <div className="flex items-center gap-2 sm:gap-3 mb-2">
+              <div className="p-1.5 sm:p-2 bg-emerald-500/20 rounded-lg backdrop-blur-sm">
                 {(() => {
                   const Icon = slides[currentSlide].icon;
-                  return <Icon className="w-5 h-5 text-emerald-300" />;
+                  return <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-300" />;
                 })()}
               </div>
-              <h3 className="text-xl font-bold">{slides[currentSlide].title}</h3>
+              <h3 className="text-lg sm:text-xl font-bold">{slides[currentSlide].title}</h3>
             </div>
-            <div className="flex gap-3 text-sm text-gray-300 pl-11">
+            <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-200 pl-9 sm:pl-11">
               {slides[currentSlide].specs.map((spec, i) => (
                 <span key={i} className="flex items-center gap-1">
-                  <span className="w-1 h-1 bg-emerald-400 rounded-full" />
+                  <span className="w-1 h-1 bg-emerald-400 rounded-full flex-shrink-0" />
                   {spec}
                 </span>
               ))}
@@ -94,15 +94,15 @@ export default function DeviceShowcase() {
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 backdrop-blur-md hover:bg-white/40 text-white opacity-0 group-hover:opacity-100 transition-all transform hover:scale-110 z-10"
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 sm:bg-white/20 backdrop-blur-md hover:bg-black/40 sm:hover:bg-white/40 text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all transform hover:scale-110 z-10"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 drop-shadow-md" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 backdrop-blur-md hover:bg-white/40 text-white opacity-0 group-hover:opacity-100 transition-all transform hover:scale-110 z-10"
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 sm:bg-white/20 backdrop-blur-md hover:bg-black/40 sm:hover:bg-white/40 text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all transform hover:scale-110 z-10"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 drop-shadow-md" />
         </button>
 
         {/* Pagination Dots */}

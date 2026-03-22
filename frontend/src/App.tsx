@@ -10,6 +10,9 @@ import { Compliance } from './components/Compliance';
 import { Footer } from './components/Footer';
 import { StickyBar } from './components/StickyBar';
 import { DemoModal } from './components/DemoModal';
+import { ProductPage } from './components/ProductPage';
+import { TechnologyPage } from './components/TechnologyPage';
+import { ResearchPage } from './components/ResearchPage';
 
 function AppContent() {
   const [showSticky, setShowSticky] = useState(false);
@@ -64,6 +67,9 @@ function AppContent() {
       <Navbar onOpenModal={() => setIsModalOpen(true)} />
       <Routes>
         <Route path="/" element={<HomePage onOpenModal={() => setIsModalOpen(true)} />} />
+        <Route path="/product" element={<ProductPage onOpenModal={() => setIsModalOpen(true)} />} />
+        <Route path="/technology" element={<TechnologyPage onOpenModal={() => setIsModalOpen(true)} />} />
+        <Route path="/research" element={<ResearchPage onOpenModal={() => setIsModalOpen(true)} />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />

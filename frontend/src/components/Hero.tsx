@@ -14,7 +14,7 @@ export function Hero({ onOpenModal }: HeroProps) {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col md:flex-row items-center md:justify-center overflow-hidden pt-28 md:pt-32 pb-16 md:pb-20">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -33,7 +33,7 @@ export function Hero({ onOpenModal }: HeroProps) {
         <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-cyan-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-32 md:pt-0">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-12 max-w-7xl mx-auto">
           {/* Left Column: Text Content */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left">
@@ -68,12 +68,13 @@ export function Hero({ onOpenModal }: HeroProps) {
                 <span className="relative z-10">Request Demo</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
-              <button
-                onClick={() => document.getElementById('product')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full sm:w-auto px-8 py-4 bg-white text-emerald-700 font-semibold rounded-lg shadow-md hover:shadow-lg border-2 border-emerald-200 hover:border-emerald-300 transform hover:scale-105 transition-all duration-300"
+              <a
+                href="/ENVIONIX-TOXISENSE-BROCHURE.pdf"
+                download="ENVIONIX-TOXISENSE-BROCHURE.pdf"
+                className="w-full sm:w-auto px-8 py-4 bg-white text-emerald-700 font-semibold rounded-lg shadow-md hover:shadow-lg border-2 border-emerald-200 hover:border-emerald-300 transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
               >
-                Learn More
-              </button>
+                Download Brochure
+              </a>
             </div>
 
             <div className={`transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100' : 'opacity-0'} hidden sm:block`}>

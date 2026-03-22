@@ -21,9 +21,11 @@ export function Navbar({ onOpenModal }: NavbarProps) {
 
   const navigation = [
     { name: 'Home', href: '/#home' },
-    { name: 'Product', href: '/#product' },
+    { name: 'Product', href: '/product', isRoute: true },
+    { name: 'Technology', href: '/technology', isRoute: true },
+    { name: 'Research', href: '/research', isRoute: true },
     { name: 'Contact', href: '/#contact' },
-    { name: 'About us', href: '/about', isRoute: true },
+    { name: 'About Us', href: '/about', isRoute: true },
   ];
 
   const scrollToSection = (href: string) => {
@@ -68,13 +70,13 @@ export function Navbar({ onOpenModal }: NavbarProps) {
       : 'bg-white/95 backdrop-blur-sm'
       }`}>
       <div className="container mx-auto px-6">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-16 sm:h-20 md:h-24">
           {/* Logo */}
           <a
             href="/"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity ml-21"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            <img src="/logo.png" alt="Envionix Logo" className="h-20 w-auto object-contain" />
+            <img src="/logo.png" alt="Envionix Logo" className="h-10 sm:h-14 md:h-20 w-auto object-contain" />
           </a>
 
           {/* Desktop Navigation */}
